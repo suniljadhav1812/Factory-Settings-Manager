@@ -32,3 +32,4 @@ if password_input == PASSWORD:
         st.success("✅ Changes saved!")
 else:
     st.warning("Enter the correct password to access editing.")
+
