@@ -19,9 +19,9 @@ st.markdown("""
             margin-bottom: 20px;
         }
         .title {
-            font-size: 32px;
-            font-weight: 700;
-            color: #333;
+            font-size: 32px !important;   /* consistent size */
+            font-weight: 700 !important;
+            color: #333 !important;
         }
         .search-input input {
             font-size: 18px !important;
@@ -30,6 +30,7 @@ st.markdown("""
         }
     </style>
 """, unsafe_allow_html=True)
+
 
 # --- Functions ---
 def load_data():
@@ -50,7 +51,9 @@ def search_data(query):
         df = pd.read_sql_query("SELECT * FROM parameters", conn)
     conn.close()
     return df
+#st.markdown('<div class="title">📊 Factory Settings Manager</div>', unsafe_allow_html=True)
 st.markdown('<div class="title">📊 Factory Settings Manager</div>', unsafe_allow_html=True)
+
 # --- Password Gate ---
 password_input = st.text_input("Enter Password", type="password")
 
@@ -70,4 +73,3 @@ if password_input == PASSWORD:
     st.markdown("[✏️ Go to Edit Page](https://factory-settings-manager.onrender.com/edit)", unsafe_allow_html=True)
 else:
     st.warning("Enter the correct password to access editing.")
-
