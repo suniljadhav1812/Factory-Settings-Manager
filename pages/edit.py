@@ -4,6 +4,31 @@ import sqlite3
 
 DB_FILE = "parameters.db"
 PASSWORD = "apple"  # You can set this to a secure value or use secrets
+# Page configuration
+st.set_page_config(page_title="Factory Settings Manager", layout="wide")
+
+# --- CSS Styling ---
+st.markdown("""
+    <style>
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .title {
+            font-size: 32px !important;   /* consistent size */
+            font-weight: 700 !important;
+            color: #333 !important;
+        }
+        .search-input input {
+            font-size: 18px !important;
+            padding: 8px;
+            width: 300px;
+        }
+    </style>
+""", unsafe_allow_html=True)
+
 
 def load_data():
     conn = sqlite3.connect(DB_FILE)
@@ -17,8 +42,10 @@ def save_data(df):
     conn.close()
 
 # --- Authentication ---
-st.set_page_config(page_title="Edit Parameters", layout="wide")
-st.title("🔐 Edit Parameters (Admin Only)")
+#st.set_page_config(page_title="Edit Parameters", layout="wide")
+#st.markdown('<div class="title">🔐 Edit Parameters (Admin Only)</div>', unsafe_allow_html=True)
+st.markdown('<div class="title">🔐 Edit Parameters (Admin Only)</div>', unsafe_allow_html=True)
+#st.title("🔐 Edit Parameters (Admin Only)")
 
 password_input = st.text_input("Enter Password", type="password")
 
