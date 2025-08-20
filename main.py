@@ -67,6 +67,7 @@ if password_input == PASSWORD:
     st.dataframe(df, use_container_width=True)
 
     # --- Edit Page Link ---
-    st.markdown("[✏️ Go to Edit Page](http://localhost:8501/edit)", unsafe_allow_html=True)
+    st.markdown("[✏️ Go to Edit Page](https://factory-settings-manager.onrender.com/edit)", unsafe_allow_html=True)
 else:
     st.warning("Enter the correct password to access editing.")
+
